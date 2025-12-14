@@ -1,0 +1,215 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f6f7f9;
+  color: #333;
+}
+
+header {
+  background-color: #111;
+  color: #fff;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.7rem;
+}
+
+header p {
+  margin: 0.25rem 0 0;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.5fr);
+  gap: 1rem;
+  padding: 1rem 2rem 2rem;
+}
+
+/* LEFT COLUMN */
+
+#builder-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#bike-builder-container {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#bike-builder-container h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Preview box: matches ~850x650 aspect ratio */
+#bike-builder {
+  position: relative;
+  width: 100%;
+  padding-top: 76.47%;
+  border-radius: 8px;
+  background: #e9ecf2;
+  overflow: hidden;
+}
+
+/* Each part layer is a full overlayed image */
+#bike-builder .part-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  pointer-events: none;
+}
+
+/* Sidebar */
+
+#sidebar {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#selected-summary h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+#selected-list {
+  list-style: none;
+  padding-left: 1rem;
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+}
+
+#selected-list li {
+  margin-bottom: 0.25rem;
+}
+
+/* Totals */
+
+#totals {
+  margin-top: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid #ddd;
+  font-size: 0.9rem;
+}
+
+#totals h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+}
+
+/* RIGHT COLUMN: selector */
+
+#parts-selector {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+#category-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+#current-category {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+#next-category {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #f3f4f6;
+  cursor: pointer;
+}
+
+#next-category:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.filters input[type="text"],
+.filters select {
+  flex: 1 1 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fafafa;
+}
+
+#results {
+  max-height: 70vh;
+  overflow-y: auto;
+  border-top: 1px solid #eee;
+  padding-top: 0.5rem;
+}
+
+/* Part cards */
+
+.part-card {
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  background-color: #f8fafc;
+  margin-bottom: 0.4rem;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.1s, box-shadow 0.1s;
+}
+
+.part-card:hover {
+  background-color: #eef3ff;
+  transform: translateY(-1px);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.part-card h3 {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.part-card p {
+  margin: 0.1rem 0;
+  font-size: 0.8rem;
+}
+
+.part-card .meta-line {
+  font-size: 0.78rem;
+  color: #555;
+}
+
+@media (max-width: 900px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+}
